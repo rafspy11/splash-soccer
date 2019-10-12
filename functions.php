@@ -60,7 +60,15 @@ function home_slider( $atts ) {
     $sliderHome = '<div class="slider-home">';
 
     foreach($posts as $post) {
-        $sliderHome .= '<div class="slider-home__item" style="background-image: url('.get_the_post_thumbnail_url($post->ID, 'full').')">'.$post->post_title.'</div>';
+        $sliderHome .= '<div class="slider-home__item" style="background-image: url('.get_the_post_thumbnail_url($post->ID, 'full').')">';
+        $sliderHome .= '<div class="container">';
+        $sliderHome .= '<div class="row justify-content-center">';
+        $sliderHome .= '<div class="col-sm-10 slider-home__content">';
+        $sliderHome .= '<p class="slider-home__date"></p>';
+        $sliderHome .= '</div>';
+        $sliderHome .= '</div>';
+        $sliderHome .= '</div>';
+        $sliderHome .= '</div>';
     }
 
     $sliderHome .= '</div>';
