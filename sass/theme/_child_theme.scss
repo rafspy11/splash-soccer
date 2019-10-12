@@ -1,0 +1,105 @@
+@mixin flex-center() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  font-family: $font-primary;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999;
+  .navbar {
+    background-color: $color-navbar;
+    height: 70px;
+    .container {
+      height: 100%;
+      .navbar-collapse {
+        height: 100%;
+        .navbar-nav {
+          height: 100%;
+          .menu-item {
+            height: 100%;
+            .nav-link {
+              height: 100%;
+              @include flex-center();
+              position: relative;
+              text-transform: uppercase;
+              font-size: 0.925rem;
+              padding: 0 35px;
+              color: $white;
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $color-primary;
+                opacity: 0;
+              }
+              &:hover {
+                &::before {
+                  opacity: 1;
+                }
+              }
+            }
+            &.current_page_item {
+              .nav-link {
+                &::before {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider-home__item {
+  height: 600px !important;
+}
+
+.slick-dots {
+  display: flex;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  button {
+    color: transparent;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    padding: 0;
+    margin: 0px 5px;
+    transition: $transition-primary;
+    display: inline-block;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(255,255,255,.3);
+    }
+  }
+  .slick-active {
+    button {
+      background-color: $color-primary;
+    }
+  }
+}
